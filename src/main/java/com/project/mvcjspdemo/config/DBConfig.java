@@ -28,15 +28,15 @@ public class DBConfig {
     private String dbPassword;
 
     @Bean
-    public DAOImpl dao() throws IOException {
+    public DAOImpl hrDAO() throws IOException {
         DAOImpl dao = new DAOImpl();
         dao.setSessionFactory(mainSessionFactory());
         return dao;
     }
 
     // 1. DataSource Bean (DBCP2)
-    @Bean(name = "dataSource", destroyMethod = "close")
-    public DataSource dataSource() {
+    @Bean(name = "hrDataSource", destroyMethod = "close")
+    public DataSource hrDataSource() {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl(dbUrl);
@@ -55,7 +55,7 @@ public class DBConfig {
     @Bean(name = "mainSessionFactory")
     public SessionFactory mainSessionFactory() throws IOException {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-        sessionFactory.setDataSource(dataSource());
+        sessionFactory.setDataSource(hrDataSource());
 
         sessionFactory.setPackagesToScan("com.project.mvcjspdemo.entity");
 
@@ -73,7 +73,7 @@ public class DBConfig {
     public HibernateTransactionManager transactionManager(SessionFactory mainSessionFactory) {
         HibernateTransactionManager txManager = new HibernateTransactionManager();
         txManager.setSessionFactory(mainSessionFactory);
-        txManager.setDataSource(dataSource());
+        txManager.setDataSource(hrDataSource());
         return txManager;
     }
 
