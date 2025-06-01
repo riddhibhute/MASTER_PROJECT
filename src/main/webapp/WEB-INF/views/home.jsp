@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Company Registration</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         * {
             box-sizing: border-box;
@@ -98,8 +99,8 @@
     <h2>MedClone -- Company Registration</h2>
     <form id="companyForm">
         <div class="form-group">
-            <label for="company_name">Company Name *</label>
-            <input type="text" id="company_name" name="company_name" required>
+            <label for="companyName">Company Name *</label>
+            <input type="text" id="companyName" name="companyName" required>
         </div>
 
         <div class="form-row">
@@ -134,8 +135,8 @@
                 <input type="text" id="pincode" name="pincode">
             </div>
             <div class="form-group">
-                <label for="phone_no">Phone Number</label>
-                <input type="tel" id="phone_no" name="phone_no">
+                <label for="phoneNo">Phone Number</label>
+                <input type="tel" id="phoneNo" name="phoneNo">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
@@ -145,16 +146,16 @@
 
         <div class="form-row">
             <div class="form-group">
-                <label for="admin_name">Admin Name</label>
-                <input type="text" id="admin_name" name="admin_name">
+                <label for="adminName">Admin Name</label>
+                <input type="text" id="adminName" name="adminName">
             </div>
             <div class="form-group">
-                <label for="identity_proof_no">Identity Proof No.</label>
-                <input type="text" id="identity_proof_no" name="identity_proof_no">
+                <label for="identityProofNo">Identity Proof No.</label>
+                <input type="text" id="identityProofNo" name="identityProofNo">
             </div>
             <div class="form-group">
-                <label for="photo_file_path">Upload Photo</label>
-                <input type="file" id="photo_file_path" name="photo_file_path" accept="image/*">
+                <label for="photoFilePath">Upload Photo</label>
+                <input type="file" id="photoFilePath" name="photoFilePath" accept="image/*">
             </div>
         </div>
 
@@ -266,7 +267,7 @@
             };
 
             $.ajax({
-                url: '/api/companies',
+                url: 'http://localhost:8080/api/companies',
                 method: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(formData),
