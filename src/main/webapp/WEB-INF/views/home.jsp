@@ -273,6 +273,7 @@
                 data: JSON.stringify(formData),
                 success: function(response) {
                     alert("Company saved successfully!");
+                    loadSetupJsp();
                 },
                 error: function(err) {
                     alert("Error saving company!");
@@ -280,6 +281,10 @@
                 }
             });
         });
+
+        function loadSetupJsp() {
+            window.location.href = "/setup";
+        }
 </script>
 </body>
 </html>
