@@ -117,21 +117,21 @@ const CompanyRegistrationForm = () => {
         <div className="form-row">
           <div className="form-group">
             <label>Country</label>
-            <select name="country" value={formData.country} onChange={handleChange}>
+            <select name="country" required value={formData.country} onChange={handleChange}>
               <option value="">--Select Country--</option>
               {countries.map((c, idx) => <option key={idx} value={c}>{c}</option>)}
             </select>
           </div>
           <div className="form-group">
             <label>State</label>
-            <select name="state" value={formData.state} onChange={handleChange}>
+            <select name="state" required value={formData.state} onChange={handleChange}>
               <option value="">--Select State--</option>
               {states.map((s, idx) => <option key={idx} value={s}>{s}</option>)}
             </select>
           </div>
           <div className="form-group">
             <label>City</label>
-            <select name="city" value={formData.city} onChange={handleChange}>
+            <select name="city" required value={formData.city} onChange={handleChange}>
               <option value="">--Select City--</option>
               {cities.map((c, idx) => <option key={idx} value={c}>{c}</option>)}
             </select>
@@ -178,5 +178,5 @@ const CompanyRegistrationForm = () => {
     </div>
   );
 };
-
 export default CompanyRegistrationForm;
+
